@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 /// App typography & theme.
+///
+/// Fonts (Sora + Inter) are **vendored** as TTF assets declared in pubspec.yaml
+/// (see assets/fonts/). This removes the `google_fonts` package dependency so
+/// the project compiles on ALL Flutter versions (google_fonts 6.x breaks on
+/// Flutter 3.29+ due to a const-Map/FontWeight change; 7.x+ requires Flutter
+/// >= 3.35 which is too new).
+///
 /// Display font: Sora (headings, numbers, brand, button labels)
 /// Body font: Inter (all body text)
 class AppTheme {
   AppTheme._();
+
+  static const String displayFont = 'Sora';
+  static const String bodyFont = 'Inter';
 
   static ThemeData light() {
     final base = ThemeData.light(useMaterial3: true);
@@ -22,11 +31,13 @@ class AppTheme {
         error: AppColors.destructive,
         outline: AppColors.border,
       ),
-      textTheme: GoogleFonts.interTextTheme(base.textTheme).apply(
+      // Apply Inter as the default font family for all text in the theme.
+      textTheme: base.textTheme.apply(
+        fontFamily: bodyFont,
         bodyColor: AppColors.foreground,
         displayColor: AppColors.foreground,
       ),
-      primaryTextTheme: GoogleFonts.interTextTheme(base.primaryTextTheme),
+      primaryTextTheme: base.primaryTextTheme.apply(fontFamily: bodyFont),
       dividerColor: AppColors.border,
       splashFactory: NoSplash.splashFactory,
       highlightColor: Colors.transparent,
@@ -35,7 +46,7 @@ class AppTheme {
     );
   }
 
-  // ---- Font families ----
+  // ---- Font family helpers ----
   static TextStyle display({
     double size = 14,
     FontWeight weight = FontWeight.w600,
@@ -43,7 +54,8 @@ class AppTheme {
     double height = 1.2,
     double? letterSpacing,
   }) {
-    return GoogleFonts.sora(
+    return TextStyle(
+      fontFamily: displayFont,
       fontSize: size,
       fontWeight: weight,
       color: color,
@@ -59,7 +71,8 @@ class AppTheme {
     double height = 1.4,
     double? letterSpacing,
   }) {
-    return GoogleFonts.inter(
+    return TextStyle(
+      fontFamily: bodyFont,
       fontSize: size,
       fontWeight: weight,
       color: color,

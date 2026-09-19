@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lucide_icons/lucide_icons.dart';
+import '../theme/lucide_icons.dart';
 
 /// Maps React lucide-react PascalCase icon names (e.g. "ImageIcon", "ChevronLeftIcon")
 /// to Flutter IconData. This is the single source of truth for icon parity with the

@@ -10,9 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  google_fonts: ^6.2.1
   cached_network_image: ^3.4.1
-  lucide_icons: ^0.257.0
 
 dev_dependencies:
   flutter_test:
@@ -21,3 +19,35 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/fonts/
+
+  fonts:
+    # Lucide icon font (vendored from lucide_icons 0.257.0 to avoid the
+    # `final class IconData` incompatibility on Flutter 3.29+).
+    - family: Lucide
+      fonts:
+        - asset: assets/fonts/lucide.ttf
+    # Sora — display/headings font (vendored, replaces google_fonts).
+    - family: Sora
+      fonts:
+        - asset: assets/fonts/Sora-400.ttf
+          weight: 400
+        - asset: assets/fonts/Sora-500.ttf
+          weight: 500
+        - asset: assets/fonts/Sora-600.ttf
+          weight: 600
+        - asset: assets/fonts/Sora-700.ttf
+          weight: 700
+    # Inter — body font (vendored, replaces google_fonts).
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-400.ttf
+          weight: 400
+        - asset: assets/fonts/Inter-500.ttf
+          weight: 500
+        - asset: assets/fonts/Inter-600.ttf
+          weight: 600
+        - asset: assets/fonts/Inter-700.ttf
+          weight: 700
