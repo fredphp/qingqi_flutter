@@ -1,0 +1,21 @@
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # Treat real bugs as errors, relax style-only issues
+    invalid_annotation_target: ignore
+    deprecated_member_use: warning
+  exclude:
+    - "lib/generated/**"
+
+linter:
+  rules:
+    avoid_print: false
+    prefer_single_quotes: false
+    prefer_const_constructors: false
+    prefer_const_literals_to_create_immutables: false
+    prefer_const_declarations: false
+    use_key_in_widget_constructors: true
+    avoid_unnecessary_containers: false
+    sized_box_for_whitespace: false
+    prefer_typing_uninitialized_variables: false
