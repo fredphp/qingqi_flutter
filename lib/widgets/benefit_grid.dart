@@ -31,17 +31,19 @@ class BenefitGrid extends StatelessWidget {
           final slice = benefits.sublist(i, (i + colCount).clamp(0, benefits.length));
           rows.add(Padding(
             padding: EdgeInsets.only(top: i == 0 ? 0 : gap),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                for (int j = 0; j < slice.length; j++) ...[
-                  if (j > 0) SizedBox(width: gap),
-                  SizedBox(
-                    width: cellWidth,
-                    child: _BenefitCell(benefit: slice[j]),
-                  ),
+            child: IntrinsicHeight(
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  for (int j = 0; j < slice.length; j++) ...[
+                    if (j > 0) SizedBox(width: gap),
+                    SizedBox(
+                      width: cellWidth,
+                      child: _BenefitCell(benefit: slice[j]),
+                    ),
+                  ],
                 ],
-              ],
+              ),
             ),
           ));
         }
