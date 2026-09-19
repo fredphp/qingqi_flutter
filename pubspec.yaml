@@ -1,0 +1,23 @@
+name: qingqi_flutter
+description: "轻启AI - 让工具更简单 · 让生活更轻松。一个 App，解决工作、学习、生活中的各种需求。1:1 Flutter replication of the QingQi AI life assistant design."
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+  flutter: ">=3.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
